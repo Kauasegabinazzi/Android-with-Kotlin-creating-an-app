@@ -11,12 +11,12 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val name = findViewById<TextView>(R.id.name)
-        name.setText("codigo")
-        val descrica = findViewById<TextView>(R.id.descricao)
-        descrica.setText("laranja")
-        val value = findViewById<TextView>(R.id.value)
-        value.setText("19")
+//        val name = findViewById<TextView>(R.id.name)
+//        name.setText("codigo")
+//        val descrica = findViewById<TextView>(R.id.descricao)
+//        descrica.setText("laranja")
+//        val value = findViewById<TextView>(R.id.value)
+//        value.setText("19")
 
     }
 }
