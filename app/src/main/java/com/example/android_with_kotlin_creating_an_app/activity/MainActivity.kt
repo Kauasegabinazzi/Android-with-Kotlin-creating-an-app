@@ -1,11 +1,11 @@
-package com.example.android_with_kotlin_creating_an_app
+package com.example.android_with_kotlin_creating_an_app.activity
+
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import android.widget.Toast
-import org.w3c.dom.Text
+import androidx.recyclerview.widget.RecyclerView
+import com.example.android_with_kotlin_creating_an_app.R
+import com.example.android_with_kotlin_creating_an_app.recyclerViewAdapter.ProductsListAdapter
 
 class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +17,7 @@ class MainActivity : Activity() {
 //        descrica.setText("laranja")
 //        val value = findViewById<TextView>(R.id.value)
 //        value.setText("19")
-
+        var reclyclerView = findViewById<RecyclerView>(R.id.recycler)
+        reclyclerView.adapter = ProductsListAdapter()
     }
 }
