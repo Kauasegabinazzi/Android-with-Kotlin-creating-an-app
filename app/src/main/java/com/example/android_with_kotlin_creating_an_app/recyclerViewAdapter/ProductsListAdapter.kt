@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_with_kotlin_creating_an_app.R
 import com.example.android_with_kotlin_creating_an_app.model.Product
@@ -19,9 +20,19 @@ class ProductsListAdapter(private val context: Context ,private val products: Li
     override fun getItemCount(): Int = products.size
 
     override fun onBindViewHolder(holder: ProductsListAdapter.ViewHolders, position: Int) {
-        TODO("Not yet implemented")
+        val product = products[position]
+        holder.vincula(product)
     }
 
-    class ViewHolders(view: View) : RecyclerView.ViewHolder(view)
+    class ViewHolders(view: View) : RecyclerView.ViewHolder(view) {
+        fun vincula(product: Product) {
+            val name = itemView.findViewById<TextView>(R.id.name)
+            name.text = product.name
+            val description = itemView.findViewById<TextView>(R.id.descricao)
+            description.text = product.description
+            val value = itemView.findViewById<TextView>(R.id.value)
+            value.text = product.values.toPlainString()
+        }
+    }
 
 }
