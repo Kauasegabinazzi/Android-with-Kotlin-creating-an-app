@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android-with-Kotlin-creating-an-app</string>
+    <string name="title_activity_form_product">FormProductActivity</string>
 </resources>
