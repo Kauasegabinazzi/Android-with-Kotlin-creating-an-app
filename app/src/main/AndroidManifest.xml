@@ -13,10 +13,8 @@
         android:theme="@style/Theme.AndroidwithKotlincreatinganapp"
         tools:targetApi="31">
         <activity
-            android:name=".FormProductActivity"
-            android:exported="true"
-            android:label="@string/title_activity_form_product"
-            android:theme="@style/Theme.AndroidwithKotlincreatinganapp">
+            android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +22,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
-            android:exported="true">
+            android:name=".FormProductActivity"
+            android:exported="true"
+            android:label="@string/title_activity_form_product"
+            android:theme="@style/Theme.AndroidwithKotlincreatinganapp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
