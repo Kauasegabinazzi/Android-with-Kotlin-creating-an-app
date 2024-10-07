@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
+import com.example.android_with_kotlin_creating_an_app.Dao.ProductDao
 import com.example.android_with_kotlin_creating_an_app.model.Product
 import java.math.BigDecimal
 
@@ -31,6 +32,9 @@ class FormProductActivity : AppCompatActivity(R.layout.activity_form_product) {
                 values = value
             )
             Log.i("FormularioProduto", "onCreate: $newProduct")
+            val dao = ProductDao()
+            dao.add(newProduct)
+            Log.i("FormularioProduto", "onCreate: ${dao.searchAll()}")
         }
     }
 }
