@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android_with_kotlin_creating_an_app.Dao.ProductDao
 import com.example.android_with_kotlin_creating_an_app.FormProductActivity
 import com.example.android_with_kotlin_creating_an_app.R
 import com.example.android_with_kotlin_creating_an_app.model.Product
@@ -17,18 +18,10 @@ import java.math.BigDecimal
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        val name = findViewById<TextView>(R.id.name)
-//        name.setText("codigo")
-//        val descrica = findViewById<TextView>(R.id.descricao)
-//        descrica.setText("laranja")
-//        val value = findViewById<TextView>(R.id.value)
-//        value.setText("19")
+        val dao = ProductDao()
+
         var reclyclerView = findViewById<RecyclerView>(R.id.recycler)
-        reclyclerView.adapter = ProductsListAdapter(context = this, products = listOf(
-            Product(name = "teste", description = "teste desc", values = BigDecimal("19.99")),
-            Product(name = "teste2", description = "teste2 desc", values = BigDecimal("21.99")),
-            Product(name = "teste3", description = "teste3 desc", values = BigDecimal("26.99"))
-        ))
+        reclyclerView.adapter = ProductsListAdapter(context = this, products = dao.searchAll())
         val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
         fab.setOnClickListener{
             val intent = Intent(this, FormProductActivity::class.java)
