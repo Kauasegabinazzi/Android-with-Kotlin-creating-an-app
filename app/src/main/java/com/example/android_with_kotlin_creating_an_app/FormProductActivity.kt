@@ -35,6 +35,7 @@ class FormProductActivity : AppCompatActivity(R.layout.activity_form_product) {
             val dao = ProductDao()
             dao.add(newProduct)
             Log.i("FormularioProduto", "onCreate: ${dao.searchAll()}")
+            finish()
         }
     }
 }

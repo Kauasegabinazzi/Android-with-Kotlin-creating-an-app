@@ -18,8 +18,11 @@ import java.math.BigDecimal
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val dao = ProductDao()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        val dao = ProductDao()
         var reclyclerView = findViewById<RecyclerView>(R.id.recycler)
         reclyclerView.adapter = ProductsListAdapter(context = this, products = dao.searchAll())
         val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
