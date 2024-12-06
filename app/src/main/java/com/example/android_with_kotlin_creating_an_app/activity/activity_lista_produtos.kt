@@ -12,19 +12,31 @@ import com.example.android_with_kotlin_creating_an_app.recyclerViewAdapter.Produ
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos) {
+
+    private val dao = ProductDao()
+    private val adapter = ProductsListAdapter(context = this, products = dao.searchAll())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        extracted()
+        configutaFab()
     }
 
     override fun onResume() {
         super.onResume()
-        val dao = ProductDao()
-        var reclyclerView = findViewById<RecyclerView>(R.id.recycler)
-        reclyclerView.adapter = ProductsListAdapter(context = this, products = dao.searchAll())
+        adapter.atualiza(dao.searchAll())
+    }
+
+    private fun configutaFab() {
         val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
-        fab.setOnClickListener{
+        fab.setOnClickListener {
             val intent = Intent(this, FormProductActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun extracted() {
+        var reclyclerView = findViewById<RecyclerView>(R.id.recycler)
+        reclyclerView.adapter = adapter
     }
 }

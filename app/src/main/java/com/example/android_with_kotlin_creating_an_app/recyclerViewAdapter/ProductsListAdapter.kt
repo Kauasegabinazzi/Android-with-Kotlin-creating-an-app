@@ -9,7 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.android_with_kotlin_creating_an_app.R
 import com.example.android_with_kotlin_creating_an_app.model.Product
 
-class ProductsListAdapter(private val context: Context ,private val products: List<Product>) : RecyclerView.Adapter<ProductsListAdapter.ViewHolders>() {
+class ProductsListAdapter(
+    private val context: Context ,
+    products: List<Product>) : RecyclerView.Adapter<ProductsListAdapter.ViewHolders>() {
+
+    private val products = products.toMutableList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsListAdapter.ViewHolders {
         val inflater = LayoutInflater.from(context)
@@ -22,6 +26,12 @@ class ProductsListAdapter(private val context: Context ,private val products: Li
     override fun onBindViewHolder(holder: ProductsListAdapter.ViewHolders, position: Int) {
         val product = products[position]
         holder.vincula(product)
+    }
+
+    fun atualiza(produtos: List<Product>) {
+        this.products.clear()
+        this.products.addAll(produtos)
+        notifyDataSetChanged()
     }
 
     class ViewHolders(view: View) : RecyclerView.ViewHolder(view) {
